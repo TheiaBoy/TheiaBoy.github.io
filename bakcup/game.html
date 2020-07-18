@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #infoBox {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #humanBox img {
+            width: 100px;
+        }
+
+        #computerBox img {
+            width: 100px;
+        }
+
+        #startBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        div {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #operationBox {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let humanScore = 0
+        let computerScore = 0
+
+        let humanHand = 0
+        let computerHand = 0
+
+        function refreshUI() {
+            let humanHandElement = document.getElementById("humanHand")
+            let computerHandElement = document.getElementById("computerHand")
+            let humanScoreElement = document.getElementById("humanScore")
+            let computerScoreElement = document.getElementById("computerScore")
+
+            computerScoreElement.innerText = "Score: " + computerScore;
+            humanScoreElement.innerText = "Score: " + humanScore;
+
+
+            let pictureName = "img/avatar.jpg";
+
+            if (computerHand === 1) {
+                pictureName = "img/computer_scissor.png";
+            } else if (computerHand === 2) {
+                pictureName = "img/computer_rock.png";
+            } else if (computerHand === 3) {
+                pictureName = "img/computer_paper.png"
+            }
+            computerHandElement.setAttribute("src", pictureName)
+
+            pictureName = "img/avatar.jpg";
+            if (humanHand === 1) {
+                pictureName = "img/human_scissor.png";
+            } else if (humanHand === 2) {
+                pictureName = "img/human_rock.png";
+            } else if (humanHand === 3) {
+                pictureName = "img/human_paper.png";
+            }
+            humanHandElement.setAttribute("src", pictureName);
+
+        }
+
+        function start() {
+            alert("Start!");
+            humanScore = 0;
+            computerScore = 0;
+            refreshUI();
+        }
+
+        function play(playerHand) {
+            // 首先，我们需要随机产生computerHand,
+            // 这里调用了浏览器提供的方法，这样会随机产生1, 2, 3三个数字
+            computerHand = Math.ceil(Math.random() * 3);
+            humanHand = playerHand;
+            // 这里我们开始判断输赢，
+            // 注意 1 -> scissor  2 -> rock   3-> paper
+            if( humanHand - computerHand === 1 || humanHand - computerHand === -2 ) {
+                // 选手赢！分数加1
+                humanScore ++;
+            } else if(computerHand - humanHand === 1 || computerHand - humanHand === -2) {
+                // 计算机赢!分数加1
+                computerScore ++;
+            }
+
+
+            // 别忘记了最后需要刷新界面！
+            refreshUI();
+        }
+
+    </script>
+
+    <div id="infoBox">
+        <div id="humanBox">
+            <img id="humanHand" src="img/avatar.jpg" alt="Tou xiang">
+            <h5>ME</h5>
+            <h6 id="humanScore">Score: </h6>
+        </div>
+        <div id="startBox">
+            <button onclick="start()">开始</button>
+        </div>
+        <div id="computerBox">
+            <img id="computerHand" src="img/computer.png" alt="Tou xiang">
+            <h5>Computer</h5>
+            <h6 id="computerScore">Score: </h6>
+        </div>
+    </div>
+
+    <div id="operationBox">
+        <button onclick="play(1)">剪刀</button>
+        <button onclick="play(2)">石头</button>
+        <button onclick="play(3)">布</button>
+    </div>
+</body>
+
+</html>
