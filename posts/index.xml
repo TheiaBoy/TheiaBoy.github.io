@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Theia Boy的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 18 Jul 2020 09:23:51 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 09:47:41 +0800</lastBuildDate>
     
 	<atom:link href="http://theiaboy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第二篇文章</title>
+      <link>http://theiaboy.github.io/posts/second/</link>
+      <pubDate>Sat, 18 Jul 2020 09:47:41 +0800</pubDate>
+      
+      <guid>http://theiaboy.github.io/posts/second/</guid>
+      <description>打开Hugo的Tag功能 在文件的头部定义，写下.
+tags: - hugo - tag - markdown</description>
+    </item>
     
     <item>
       <title>第一篇博文</title>
@@ -18,7 +28,7 @@
       
       <guid>http://theiaboy.github.io/posts/first/</guid>
       <description>你好，世界！
-hello </description>
+hello    序号 姓名（左对齐） 性别（居中） 电话号码(右对齐)     1 纪一 男 13000000000   2 和二 男 13000000001   3 黄三 男 13000000002    </description>
     </item>
     
   </channel>
